@@ -17,9 +17,32 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: us-east-1
+  environment:
+    DYNAMODB_TABLE: DataTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 # you can overwrite defaults here
 #  stage: dev
+
+resources:
+  Resources:
+    DataTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        AttributeDefinitions:
+          - AttributeName: ImgUrl
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ImgUrl
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 functions:
   hello:

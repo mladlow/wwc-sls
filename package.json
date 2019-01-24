@@ -1,0 +1,22 @@
+{
+  "name": "wwc-sls",
+  "version": "1.0.0",
+  "description": "Small Serverless demo with AWS Lambda for Women Who Code DC devops.",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mladlow/wwc-sls.git"
+  },
+  "author": "mladlow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mladlow/wwc-sls/issues"
+  },
+  "homepage": "https://github.com/mladlow/wwc-sls#readme",
+  "dependencies": {
+    "aws-sdk": "^2.387.0"
+  }
+}
