@@ -18,7 +18,7 @@ provider:
   runtime: nodejs8.10
   region: us-east-1
   environment:
-    DYNAMODB_TABLE: DataTable
+    DYNAMODB_TABLE: WwcSlsDataTable
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -30,7 +30,7 @@ provider:
 
 resources:
   Resources:
-    DataTable:
+    WwcSlsDataTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
